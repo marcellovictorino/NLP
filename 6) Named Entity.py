@@ -68,6 +68,7 @@ def process_content():
     except Exception as e:
         print(str(e))
 
+# ATTENTION: Named Entities has a lot of False Positives. Better when combined with Chunking
 #### Named Entity Type and Examples
 # ORGANIZATION - Georgia-Pacific Corp., WHO
 # PERSON - Eddy Bonte, President Obama
