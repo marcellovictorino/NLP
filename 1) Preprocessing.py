@@ -1,5 +1,9 @@
 from nltk import sent_tokenize, word_tokenize
 
+# First time, neecessary to download all packages
+# nltk.download()
+# quit()
+
 # tokenizing: separate specific groups (word tokenizer, sentence tokenizer)
 # corpora: body of text. Material from the same area. Ex: medical journals, presidential speeches, english language
 
