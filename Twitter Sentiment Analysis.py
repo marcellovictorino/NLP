@@ -12,23 +12,31 @@ from twitterAPI import *
 class listener(StreamListener):
     
     def on_data(self, data):
-        all_data = json.loads(data)
-        tweet = all_data["text"]
-        # Testing: filtering specific words of interest
-        if 'traffic' in tweet.lower():
-            print(tweet)
-        else:
-            print('Nothing about traffic ...')
-		# sentiment_value, confidence = s.sentiment(tweet)
-		# print(tweet, sentiment_value, confidence)
-        print(tweet,'\n')
+        try:
+            all_data = json.loads(data)
+            tweet = all_data["text"]
+            # Testing: filtering specific words of interest
+            # if 'traffic' in tweet.lower():
+            #     print(tweet)
+            # else:
+            #     print('Nothing about traffic ...')
+            # sentiment_value, confidence = s.sentiment(tweet)
+            # print(tweet, sentiment_value, confidence)
 
-		# if confidence*100 >= 80:
-		# 	output = open("twitter-out.txt","a")
-		# 	output.write(sentiment_value)
-		# 	output.write('\n')
-		# 	output.close()
-        return True
+            # saving to file for future analysis
+            with open('twitterData_COSL.txt','a') as fh:
+                fh.write(tweet+'\n')
+
+            print(tweet)
+
+            # if confidence*100 >= 80:
+            # 	output = open("twitter-out.txt","a")
+            # 	output.write(sentiment_value)
+            # 	output.write('\n')
+            # 	output.close()
+            return True
+        except:
+            pass
 
     def on_error(self, status):
         print(status)
@@ -48,4 +56,4 @@ twitterStream = Stream(auth, listener())
 # twitterStream.filter(follow=[''])
 
 ### 3) Only look for tweet from a specific location (bounding box)
-twitterStream.filter(locations=[-95.696438,29.540022,-95.576973,29.654943]) # Sugar Land Area
+twitterStream.filter(locations=[-95.696438,29.540022,-95.576973,29.654943]) # Sugar Land Area. Verified
