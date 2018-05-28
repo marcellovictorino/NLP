@@ -77,6 +77,6 @@ def sentiment(text):
     feats = find_features(text)
     return voted_classifier.classify(feats), voted_classifier.confidence(feats)
 
-print(sentiment('This was an amazing movie! I loved it so much. Great acting.'))
+# print(sentiment('This was an amazing movie! I loved it so much. Great acting.'))
 
-print(sentiment('This sucks. I hate the traffic in Sugar Land. Everyday is an awful standstill.'))
+# print(sentiment('This sucks. I hate the traffic in Sugar Land. Everyday is an awful standstill.'))
